@@ -1,0 +1,55 @@
+<!--导航栏  -->
+<form report-submit bindsubmit='toTopHandler'>
+  <button form-type='submit'>
+    <view class='navigator' style='padding-top:{{STATUSBAR_HEIGHT}}px;background-color:rgba(3, 169, 244, {{opacity}});'>
+      <!--左边按钮  -->
+      <view class='leftButton' hover-class='hover-class' bindtap='gotoSetting'>
+        <!-- <image src='/assets/setting.svg'></image> -->
+      </view>
+      <!--中间标题  -->
+      <view class='title'>
+        <text>大秘</text>
+      </view>
+      <!--右边间隙  -->
+    </view>
+  </button>
+</form>
+<!--加载中  -->
+<view class='loading-container' wx:if="{{LOADING}}">
+  <text class='loading-title'>andy_Liu</text>
+</view>
+<scroll-view class="container"  scroll-y
+  bindscroll="scrollHandler"
+  scroll-with-animation
+  class="container"
+  scroll-top="{{SCROLL_TOP}}"
+  wx:else>
+   <!--顶部图片  -->
+  <image src='http://image.wufazhuce.com/FmZj7x1SmB3Ui7o1vvXfG7lA-wUR' class='header_image'></image>
+  <!--顶部文字  -->
+  <view class='header_text'>
+    <text>放发正文刷卡机了</text>
+  </view>
+   <!--第一张卡片内容  -->
+  <view class='first_card' hover-class='hover-class'>
+    <form report-submit bindsubmit='addPushHandler' data-item='{{first}}'>
+      <button form-type='submit'>
+          <!--vol标题  -->
+          <view class='first_title_box'>
+            <text>犯法的事件</text>
+          </view>
+          <!--内容  -->
+          <view class='first_content_box'>
+            <text>是的空间来看考虑离开家 </text>
+          </view>
+          <!--作者  -->
+          <view class='first_author_box'>
+            <text>—— 小鲤鱼</text>
+          </view>
+      </button>
+    </form>
+  </view>
+  <view class='index_btn'>
+    <view data-index="{{index}}" wx:key="{{item.id}}" wx:for="{{btnList}}" wx:for-item="item" wx:for-index="index" class="{{item.isActive ? 'active':''}}" bindtap='btnFun'>{{item.name}}</view>
+  </view>
+</scroll-view>
