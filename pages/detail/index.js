@@ -106,14 +106,14 @@ Page({
   },
   goHomeHandler: function () {
     wx.redirectTo({
-      url: '/pages/home/index',
+      url: '/pages/index/index',
     })
   },
   /**
    * 预览图片
    */
   viewImageHandler: function (e) {
-    vPush.add(e);
+   
     var { url } = e.currentTarget.dataset;
     wx.previewImage({
       urls: [url],
@@ -167,7 +167,7 @@ Page({
    * 喜欢/取消
    */
   toggleLikeHandler: function (e) {
-    vPush.add(e);
+   
     var { IS_LIKED, data } = this.data;
     if (IS_LIKED) {
       // 取消
@@ -184,7 +184,7 @@ Page({
 
   // 分享
   shareHandler: function (e) {
-    vPush.add(e);
+   
 
     // 如果已经生成了，那么就显示
     if (this.SHARE_IMG) {
